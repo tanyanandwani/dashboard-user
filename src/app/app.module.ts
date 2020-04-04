@@ -1,16 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
+import { NgModule} from '@angular/core';
+import {HeaderComponent} from './Component/header/header.component'
 import { AppComponent } from './app.component';
+import {DashboardComponent} from './Component/dashboard/dashboard.component';
+import {TabComponent} from './Component/tab/tab.component';
+import {CardComponent} from './Component/card/card.component';
+import { DashboardServiceService} from './Shared/Services/dashboard-service.service';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {CardModule} from 'primeng/card';
+import {CalendarModule} from 'primeng/calendar';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    DashboardComponent,
+    TabComponent,
+    CardComponent,
+    
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    CardModule,
+    CalendarModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [DashboardServiceService],
+ 
+  bootstrap: [AppComponent],
+
+
+ 
 })
 export class AppModule { }

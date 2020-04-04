@@ -1,0 +1,25 @@
+.card{
+    display: inline-block;
+    width: 23%;
+    margin-right: 2%;
+    border-radius: 5px;
+    border-bottom: 2px solid #563d7c;
+    border-right:2px solid #563d7c;
+    border-left:2px solid #563d7c;
+ 
+}
+.container{
+    width:100%;
+}
+.card-text{
+    font-size: 17px;
+    
+}
+.card-header{
+    border-top: 2px solid #563d7c; 
+    border-bottom: 2px solid #563d7c;
+    background-color: #563d7c;
+    color:white; 
+    font-size:20px;
+    
+}

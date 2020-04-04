@@ -1,0 +1,44 @@
+<div class="container">
+<ng-container *ngFor="let item of items" >
+   
+<div class="card" *ngIf="item.status === 'Inprogress'">
+    <div class="card-header">{{item.status}}</div>
+  <div class="card-body">
+    <h3 class="card-title"><b>{{item.subject}}</b>{{item.id}}</h3>
+    <p class="card-text">Duration:{{item.duration}}<br>Completed:{{item.completed}}<br>Status:{{item.status}}</p>
+  </div>
+  <input type="text" name="itemid" #itemid value={{item.id}}>
+  <button (click)="removeClass(itemid.value)"> 
+  delete
+  </button>
+</div>
+
+</ng-container><br><br>
+<ng-container *ngFor="let item of items" >
+   
+    <div class="card" *ngIf="item.status === 'Notstarted'">
+        <div class="card-header">{{item.status}}</div>
+      <div class="card-body">
+        <h3 class="card-title"><b>{{item.subject}}</b></h3>
+        <p class="card-text">Duration:{{item.duration}}<br>Completed:{{item.completed}}<br>Status:{{item.status}}</p>
+        
+      </div>
+    </div>
+</ng-container><br><br>
+<ng-container *ngFor="let item of items" >
+   
+    <div class="card" *ngIf="item.status === 'Completed'">
+        <div class="card-header">{{item.status}}</div>
+      <div class="card-body">
+        <h3 class="card-title"><b>{{item.subject}}</b></h3>
+        <p class="card-text">Duration:{{item.duration}}<br>Completed:{{item.completed}}<br>Status:{{item.status}}</p>
+        
+      </div>
+    </div>
+</ng-container>
+
+
+</div>
+
+
+

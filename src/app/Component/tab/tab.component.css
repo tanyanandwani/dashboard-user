@@ -1,0 +1,24 @@
+.badge{
+    background-color: #563d7c;
+    width: 23%;
+    height: 100px;
+     margin-right: 2%;
+    font-size: 20px;
+    text-align: center;
+ 
+   
+}
+.tab{
+    width:100%;
+    height: 200px;
+   padding-top: 50px;
+   border-radius: 5px;
+
+}
+
+p{
+    text-align: center;
+}
+.container{
+    
+}

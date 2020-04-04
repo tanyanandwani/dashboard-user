@@ -1,0 +1,45 @@
+.navbar-nav .nav-link{
+    float: right;
+}
+.collapse navbar-collapse{
+    width: 40%;
+}
+.bg-light{
+    background-color: #563d7c !important;
+    width: 100%;
+}
+.navbar-light .navbar-brand{
+    color: white;
+    font-size: 32px;
+    width:60%;
+}
+.navbar-expand-lg .navbar-collapse{
+    width: 40%;
+}
+.fa{
+    font-size: 41px;
+    color: white;
+    padding-right: 58px;
+    
+}
+.username
+{color: white;
+font-size: 20px;
+/* margin-right: 11px; */
+padding-left: 334px;
+}
+@media screen and (min-width: 300px) and (max-width: 450px) {
+    .navbar-light .navbar-brand {
+        font-size: 13px;
+        width: 60%;
+      }
+     
+     .fa{
+        font-size: 20px;
+        width:20%;
+        padding-left: 41px;
+    }
+    .username{
+        font-size: 5px
+    }
+}
