@@ -16,14 +16,13 @@
               <br>Completed:{{item.completed}}
               <br>Status:{{item.status}}</p>
           </div>       
-              <!-- <button type="button" class="btn btn-outline-danger" (click)="removeClass(item)">Delete</button> -->
         </div>
       </div>
     </ng-container>
   </div>
   <div class="row">
     <ng-container *ngFor="let item of items">
-      <div class="col-lg-3 col-md-4 col-sm-12" *ngIf="item.status === 'Notstarted'">
+      <div class="col-lg-3 col-md-4 col-sm-12" *ngIf="item.status === 'NotStarted'">
         <div class="card">
           <div class="card-header">{{item.status}}
               <button type="button" class="close" aria-label="Close" (click)="removeClass(item)">

@@ -54,7 +54,7 @@ export class DashboardComponent implements OnInit {
   Count_Not_Started_class(){
     this.count_of_not_started_class = 0;
     for (var i=0; i<this.items.length; i++) {
-      if ( 'status' in this.items[i] && this.items[i].status === "Notstarted" ) this.count_of_not_started_class++;
+      if ( 'status' in this.items[i] && this.items[i].status === "NotStarted" ) this.count_of_not_started_class++;
       console.log("count in loop",this.count_of_not_started_class);
 
   }
