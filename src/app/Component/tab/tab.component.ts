@@ -15,12 +15,7 @@ export class TabComponent implements OnInit {
   @Input() tabContent_for_TotalNo_class;
   @Input() tabQuantity_for_TotalNo_class;
 
-
-
-  
-
   constructor() { }
-
   ngOnInit() {
   }
 

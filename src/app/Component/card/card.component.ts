@@ -25,11 +25,9 @@ export class CardComponent implements OnInit {
 
     })
   }
- 
-  
+
     removeClass(item) {
     console.log("items length",this.items.length);
-    //  this.items.splice(item.id.indexOf, 1);
     console.log("item id",item.id);
     const i = this.items.findIndex(it => it.id === item.id );
     if( i!== -1){

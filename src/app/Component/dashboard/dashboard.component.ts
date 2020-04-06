@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardServiceService } from '../../Shared/Services/dashboard-service.service';
 
-
-
-
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -21,8 +17,7 @@ export class DashboardComponent implements OnInit {
   constructor(private dashboardService: DashboardServiceService){}
 
   ngOnInit(){
-    this.dashboardService.getData().subscribe(data =>{
-      
+    this.dashboardService.getData().subscribe(data =>{ 
       console.log("data",data);
       this.items = data;
       console.log("items",this.items);
@@ -30,8 +25,6 @@ export class DashboardComponent implements OnInit {
       this.Count_In_progress_class();
       this.Count_Not_Started_class();
       this.count_Total_class();
-      
-
     })
   }
   Count_Completed_class(){

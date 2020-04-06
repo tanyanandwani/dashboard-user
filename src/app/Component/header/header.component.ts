@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DashboardServiceService } from '../../Shared/Services/dashboard-service.service';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   showData= false;
- 
-  constructor() { }
+  items: any = [];
+  constructor(private dashboardService: DashboardServiceService) { }
 
   ngOnInit() {
+    this.dashboardService.getData().subscribe(data =>{ 
+      this.items = data;
+    })
   }
   
   showDatavalue(){

@@ -1,14 +1,10 @@
 .card{
-   
-    /* width: 23%; */
-    /* margin-right: 2%; */
     border-radius: 5px;
     border-bottom: 2px solid #007bff;
     border-right:2px solid #007bff;
     border-left:2px solid #007bff;
     margin-bottom: 10px;
-  
- 
+
 }
 .container{
     width:100%;
