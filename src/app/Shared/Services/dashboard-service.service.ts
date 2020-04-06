@@ -12,16 +12,15 @@ export class DashboardServiceService {
  
   items: any = []; 
   constructor(private httpClient: HttpClient) { }
-  baseUrl: string = 'http://localhost:4000/';
+  baseUrl: string = 'http://localhost:4200';
   getData(){
    return this.httpClient.get("assets/data.json");   
   }
  
-  removeClass(id: number): Observable<Item> {
-    console.log("id is",id)
-    console.log("inside dashboard service");
-    return this.httpClient.delete<Item>(`${this.baseUrl}/${id}`)
-    
-  }
-  
+  // removeClass(id: number): Observable<Item> {
+  //   console.log("id is",id)
+  //   console.log("inside dashboard service");
+  //   return this.httpClient.delete<Item>(`${this.baseUrl}/${id}`)
+ 
+  // }
 }

@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CardModule} from 'primeng/card';
 import {CalendarModule} from 'primeng/calendar';
+import { TooltipModule } from 'ng2-tooltip-directive';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import {CalendarModule} from 'primeng/calendar';
     HttpClientModule,
     BrowserAnimationsModule,
     CardModule,
-    CalendarModule
+    CalendarModule,
+    TooltipModule
   ],
   providers: [DashboardServiceService],
  
