@@ -20,7 +20,6 @@ import { TooltipModule } from 'ng2-tooltip-directive';
     DashboardComponent,
     TabComponent,
     CardComponent,
-    
   ],
   imports: [
     BrowserModule,
