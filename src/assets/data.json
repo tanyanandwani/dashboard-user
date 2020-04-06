@@ -5,7 +5,8 @@
   "rating":4,
   "status": "Completed",
   "duration":"10 days",
-  "subject":"Maths"
+  "subject":"Maths",
+  "completed":"100%"
 },
 {
   "id": 2,
@@ -14,7 +15,8 @@
   "rating":4,
   "status": "Completed",
   "duration":"10 days",
-  "subject":"Hindi"
+  "subject":"Hindi",
+  "completed":"100%"
 },
 {
   "id": 3,

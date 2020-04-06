@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import {Item} from "../../model/Item";
 import {Observable} from "rxjs/index";
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -19,6 +20,8 @@ export class DashboardServiceService {
   removeClass(id: number): Observable<Item> {
     console.log("id is",id)
     console.log("inside dashboard service");
-    return this.httpClient.delete<Item>(this.baseUrl + id);
+    return this.httpClient.delete<Item>(`${this.baseUrl}/${id}`)
+    
   }
+  
 }
