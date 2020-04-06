@@ -89,5 +89,8 @@ color: white;
 .dropdown{
     padding-left:0px;
 }
+.dropdown-toggle::after{
+    margin-left: 1.255em;
+}
 }
 
