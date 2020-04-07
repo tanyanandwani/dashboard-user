@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardServiceService } from '../../Shared/Services/dashboard-service.service';
+import {Router} from "@angular/router";
+import { ActivatedRoute } from '@angular/router';
+
 import {Item} from "../../model/Item";
+
 
 
 @Component({
@@ -11,30 +15,31 @@ import {Item} from "../../model/Item";
 export class CardComponent implements OnInit {
  
   items: any = [];
-  newItems: any =[];
+  deletedItemId ;
   
-  constructor(private dashboardService: DashboardServiceService){}
+  constructor(public router: Router,private dashboardService: DashboardServiceService,private route: ActivatedRoute,){}
 
   ngOnInit(){
     this.dashboardService.getData().subscribe(data =>{
-      
-      console.log("data",data);
       this.items = data;
-      console.log("items",this.items);
-      
-
     })
+   
   }
 
-    removeClass(item) {
-    console.log("items length",this.items.length);
-    console.log("item id",item.id);
-    const i = this.items.findIndex(it => it.id === item.id );
-    if( i!== -1){
-      this.items.splice(i,1);
+  removeClass(item) {
+    const i = this.items.findIndex(it => it.id === item.id);
+    if (i !== -1) {
+      this.deletedItemId = this.items.splice(i, 1);
     }
-console.log(" items",this.items);
-    }
+    this.dashboardService.removeClass(this.deletedItemId).subscribe(data => {
+    this.router.navigate(['dashboard']);
+     });
+  }
+
+   
+    addClass(): void {
+      this.router.navigate(['dashboard/addClass'])
+    };
 
 }
 

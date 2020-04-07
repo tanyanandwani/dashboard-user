@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardServiceService } from '../../Shared/Services/dashboard-service.service';
+import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-dashboard',
@@ -14,20 +16,26 @@ export class DashboardComponent implements OnInit {
   count_of_inprogress_class;
   count_of_total_class;
   count_of_not_started_class;
-  constructor(private dashboardService: DashboardServiceService){}
+  constructor(private router: Router,private dashboardService: DashboardServiceService){}
 
   ngOnInit(){
+    
     this.dashboardService.getData().subscribe(data =>{ 
       console.log("data",data);
       this.items = data;
-      console.log("items",this.items);
+      console.log("items LENGTH ARE",this.items);
       this.Count_Completed_class();
+      console.log("count func");
       this.Count_In_progress_class();
       this.Count_Not_Started_class();
       this.count_Total_class();
     })
+ 
   }
+  
+
   Count_Completed_class(){
+    console.log("ITEM LENGTH",this.items.length);
       this.count_of_completed_class = 0;  
       for (var i=0; i<this.items.length; i++) {
         if ( 'status' in this.items[i] && this.items[i].status === "Completed" ) this.count_of_completed_class++;
@@ -59,4 +67,5 @@ count_Total_class(){
   return this.count_of_total_class;
   console.log("total",this.count_of_total_class)
 }
+
 }

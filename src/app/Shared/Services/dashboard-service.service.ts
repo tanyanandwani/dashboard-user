@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-// import {Item} from "../../model/Item";
-// import {Observable} from "rxjs/index";
+import { HttpClient,HttpHeaders } from "@angular/common/http";
+import {Observable, throwError} from 'rxjs';
+import { tap, catchError } from 'rxjs/operators';
+ import {Item} from "../../model/Item";
+ import {ItemsService} from "./items.service"
+
 
 
 @Injectable({
@@ -9,18 +12,39 @@ import { HttpClient } from "@angular/common/http";
 })
 export class DashboardServiceService {
   
+  
  
-  items: any = []; 
   constructor(private httpClient: HttpClient) { }
-  baseUrl: string = 'http://localhost:4200';
+  
+  baseUrl: string = 'api/items';
+  headers = new HttpHeaders().set('Content-Type', 'application/json').set('Accept', 'application/json');
+  httpOptions = {
+    headers: this.headers
+  };
+  //  Data = 
+  //   this.httpClient.get(this.baseUrl).subscribe(data=>this.Data=data); 
+
+  private handleError(error: any) {
+    console.error(error);                                       //Created a function to handle and log errors, in case
+    return throwError(error);
+  }
   getData(){
-   return this.httpClient.get("assets/data.json");   
+    
+    return this.httpClient.get(this.baseUrl);
+  
   }
  
-  // removeClass(id: number): Observable<Item> {
-  //   console.log("id is",id)
-  //   console.log("inside dashboard service");
-  //   return this.httpClient.delete<Item>(`${this.baseUrl}/${id}`)
- 
+  removeClass(id: number): Observable<Item> {
+    return this.httpClient.delete<Item>(`${this.baseUrl}/${id}`);
+  }
+  // addClass(item: Item): Observable<Item> {
+  //   this.Data.push(item);
+  //   console.log("items are",this.Data);
+  //   return this.Data;
+   
   // }
+addClass(item: Item): Observable<Item>{
+  item.id=null;
+  return this.httpClient.post<Item>(this.baseUrl, item, this.httpOptions)
+}
 }

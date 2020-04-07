@@ -7,17 +7,16 @@ import { DashboardServiceService } from '../../Shared/Services/dashboard-service
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  showData= false;
-  items: any = [];
+ 
+  items: any;
   constructor(private dashboardService: DashboardServiceService) { }
 
   ngOnInit() {
     this.dashboardService.getData().subscribe(data =>{ 
       this.items = data;
+      console.log("dashboard data",this.items);
     })
   }
   
-  showDatavalue(){
-    this.showData= true;
-  }
+  
 }
