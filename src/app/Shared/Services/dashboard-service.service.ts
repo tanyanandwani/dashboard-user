@@ -24,14 +24,12 @@ export class DashboardServiceService {
   //  Data = 
   //   this.httpClient.get(this.baseUrl).subscribe(data=>this.Data=data); 
 
-  private handleError(error: any) {
-    console.error(error);                                       //Created a function to handle and log errors, in case
-    return throwError(error);
-  }
+  // private handleError(error: any) {
+  //   console.error(error);                                       //Created a function to handle and log errors, in case
+  //   return throwError(error);
+  // }
   getData(){
-    
     return this.httpClient.get(this.baseUrl);
-  
   }
  
   removeClass(id: number): Observable<Item> {
@@ -43,7 +41,7 @@ export class DashboardServiceService {
   //   return this.Data;
    
   // }
-addClass(item: Item): Observable<Item>{
+addClass(item): Observable<Item>{
   item.id=null;
   return this.httpClient.post<Item>(this.baseUrl, item, this.httpOptions)
 }

@@ -3,8 +3,10 @@ import {Item} from "../../model/Item";
 
 
 export class ItemsService implements InMemoryDbService{
+  
   createDb(){
-    const items: Item[]=[{
+    const items: Item[]=[
+      {
       "id": 1,
       "username": "Tanya Nandwani",
       "email":"tanya@gmail.com",
@@ -125,8 +127,9 @@ export class ItemsService implements InMemoryDbService{
       "completed":"100%"
     }
     ];
-    
+    console.log("service items updated",items);
     return {items};
   }
-  constructor() { }
+  
+
 }

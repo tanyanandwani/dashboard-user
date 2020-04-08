@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardServiceService } from '../../Shared/Services/dashboard-service.service';
 import {Router} from "@angular/router";
+import {Item} from "../../model/Item";
 
 
 @Component({
@@ -11,7 +12,7 @@ import {Router} from "@angular/router";
 })
 export class DashboardComponent implements OnInit {
   
-  items: any = [];
+  items: Item[];
   count_of_completed_class; 
   count_of_inprogress_class;
   count_of_total_class;
@@ -20,7 +21,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(){
     
-    this.dashboardService.getData().subscribe(data =>{ 
+    this.dashboardService.getData().subscribe((data:Item[]) =>{ 
       console.log("data",data);
       this.items = data;
       console.log("items LENGTH ARE",this.items);

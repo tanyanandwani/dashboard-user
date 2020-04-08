@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardServiceService } from '../../Shared/Services/dashboard-service.service';
+import {Item} from "../../model/Item";
 
 @Component({
   selector: 'app-header',
@@ -8,11 +9,11 @@ import { DashboardServiceService } from '../../Shared/Services/dashboard-service
 })
 export class HeaderComponent implements OnInit {
  
-  items: any;
+  items: Item[];
   constructor(private dashboardService: DashboardServiceService) { }
 
   ngOnInit() {
-    this.dashboardService.getData().subscribe(data =>{ 
+    this.dashboardService.getData().subscribe((data:Item[]) =>{ 
       this.items = data;
       console.log("dashboard data",this.items);
     })

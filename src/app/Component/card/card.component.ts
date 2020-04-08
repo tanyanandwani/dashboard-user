@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DashboardServiceService } from '../../Shared/Services/dashboard-service.service';
 import {Router} from "@angular/router";
 import { ActivatedRoute } from '@angular/router';
-
+// import {Item} from '../../Shared/Services/items.service';
 import {Item} from "../../model/Item";
 
 
@@ -14,7 +14,7 @@ import {Item} from "../../model/Item";
 })
 export class CardComponent implements OnInit {
  
-  items: any = [];
+  items: Item[];
   deletedItemId ;
   
   constructor(public router: Router,private dashboardService: DashboardServiceService,private route: ActivatedRoute,){}
@@ -29,16 +29,18 @@ export class CardComponent implements OnInit {
       this.deletedItemId = this.items.splice(i, 1);
     }
     this.dashboardService.removeClass(this.deletedItemId).subscribe(data => {
-      
     // this.router.navigate(['dashboard']);
     console.log("Dashboard Service updated",this.dashboardService);
     console.log("items  updated",this.items);
-
+    
+   
      });
+    
   }
   getData(){
-    this.dashboardService.getData().subscribe(data =>{
+    this.dashboardService.getData().subscribe((data:Item[]) =>{
       this.items = data;
+     
     })
   }
    
