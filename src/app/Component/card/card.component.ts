@@ -20,10 +20,7 @@ export class CardComponent implements OnInit {
   constructor(public router: Router,private dashboardService: DashboardServiceService,private route: ActivatedRoute,){}
 
   ngOnInit(){
-    this.dashboardService.getData().subscribe(data =>{
-      this.items = data;
-    })
-   
+    this.getData();
   }
 
   removeClass(item) {
@@ -32,10 +29,18 @@ export class CardComponent implements OnInit {
       this.deletedItemId = this.items.splice(i, 1);
     }
     this.dashboardService.removeClass(this.deletedItemId).subscribe(data => {
-    this.router.navigate(['dashboard']);
+      
+    // this.router.navigate(['dashboard']);
+    console.log("Dashboard Service updated",this.dashboardService);
+    console.log("items  updated",this.items);
+
      });
   }
-
+  getData(){
+    this.dashboardService.getData().subscribe(data =>{
+      this.items = data;
+    })
+  }
    
     addClass(): void {
       this.router.navigate(['dashboard/addClass'])
