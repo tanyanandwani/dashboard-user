@@ -21,6 +21,7 @@ export class CardComponent implements OnInit {
 
   ngOnInit(){
     this.getData();
+   
   }
 
   removeClass(item) {
@@ -29,11 +30,10 @@ export class CardComponent implements OnInit {
       this.deletedItemId = this.items.splice(i, 1);
     }
     this.dashboardService.removeClass(this.deletedItemId).subscribe(data => {
+      // this.getData();
     // this.router.navigate(['dashboard']);
     console.log("Dashboard Service updated",this.dashboardService);
     console.log("items  updated",this.items);
-    
-   
      });
     
   }
