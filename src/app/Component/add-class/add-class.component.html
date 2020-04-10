@@ -1,45 +1,45 @@
 
-<div class="col-md-6 user-container">
+<div class="col-lg-8 col-md-6 col-sm-12 user-container" style="
+border: 2px solid #007bff; margin-top: 36px;">
   <h2 class="text-center">Add User</h2>
   <div class="addClassForm">
   <form  [formGroup]="addForm" (ngSubmit)="onSubmit()" novalidate>
         <div class="form-group">
-        <label for="password">id:</label>
-         <input type="number" formControlName="id" placeholder="Enter id" name="id" class="form-control" id="id">
+        <label for="password">Enter id:</label>
+         <input type="number" formControlName="id" placeholder="please enter id" name="id" class="form-control" id="id">
         </div>
     <div class="form-group">
-      <label for="username">username:</label>
-      <input type="text" formControlName="username" placeholder="username" name="username" class="form-control" id="username">
+      <label for="username">Enter username:</label>
+      <input type="text" formControlName="username" placeholder="please enter username" name="username" class="form-control" id="username">
     </div>
 
     <div class="form-group">
-      <label for="firstName">email:</label>
-      <input type="email" formControlName="email" placeholder="email" name="email" class="form-control" id="email">
+      <label for="firstName">Enter email:</label>
+      <input type="email" formControlName="email" placeholder="please enter email" name="email" class="form-control" id="email">
     </div>
 
     <div class="form-group">
-      <label for="lastName">rating:</label>
-      <input type="number" formControlName="rating" placeholder="rating" name="rating" class="form-control" id="rating">
+      <label for="lastName">Enter rating:</label>
+      <input type="number" formControlName="rating" placeholder="please enter rating" name="rating" class="form-control" id="rating">
     </div>
 
     <div class="form-group">
-      <label for="age">status:</label>
-      <input type="text" formControlName="status" placeholder="status" name="status" class="form-control" id="status">
+      <label for="age">Enter status:</label>
+      <input type="text" formControlName="status" placeholder="please enter status" name="status" class="form-control" id="status">
     </div>
 
     <div class="form-group">
-      <label for="salary">duration:</label>
-      <input type="text" formControlName="duration" placeholder="duration" name="duration" class="form-control" id="duration">
+      <label for="salary">Enter duration:</label>
+      <input type="text" formControlName="duration" placeholder="please enter duration" name="duration" class="form-control" id="duration">
     </div>
     <div class="form-group">
-        <label for="salary">subject:</label>
-        <input type="text" formControlName="subject" placeholder="subject" name="subject" class="form-control" id="subject">
+        <label for="salary">Enter subject:</label>
+        <input type="text" formControlName="subject" placeholder="please enter subject" name="subject" class="form-control" id="subject">
     </div>
     <div class="form-group">
-        <label for="salary">completed:</label>
-        <input type="text" formControlName="completed" placeholder="completed" name="completed" class="form-control" id="completed">
+        <label for="salary">completed Status:</label>
+        <input type="text" formControlName="completed" placeholder="please enter completed status" name="completed" class="form-control" id="completed">
     </div>
-
     <button class="btn btn-success">Add</button>
   </form>
 </div>

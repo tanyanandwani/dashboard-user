@@ -4,3 +4,15 @@
    align-items: center;
    justify-content: center;
 }
+.user-container{
+    width:80%;
+    margin: 0 auto;
+    border: 2 px solid #007bff !important;
+    padding-bottom: 36px;
+    padding-top: 36px;
+}
+.btn-success {
+    color: #fff;
+    background-color: #007bff;
+    
+}
