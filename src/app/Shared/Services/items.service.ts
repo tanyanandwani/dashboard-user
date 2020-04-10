@@ -127,7 +127,6 @@ export class ItemsService implements InMemoryDbService{
       "completed":"100%"
     }
     ];
-    console.log("service items updated",items);
     return {items};
   }
   

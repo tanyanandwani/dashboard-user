@@ -15,7 +15,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.dashboardService.getData().subscribe((data:Item[]) =>{ 
       this.items = data;
-      console.log("dashboard data",this.items);
     })
   }
   

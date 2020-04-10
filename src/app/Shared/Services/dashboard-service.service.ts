@@ -21,13 +21,7 @@ export class DashboardServiceService {
   httpOptions = {
     headers: this.headers
   };
-  //  Data = 
-  //   this.httpClient.get(this.baseUrl).subscribe(data=>this.Data=data); 
 
-  // private handleError(error: any) {
-  //   console.error(error);                                       //Created a function to handle and log errors, in case
-  //   return throwError(error);
-  // }
   getData(){
     return this.httpClient.get(this.baseUrl);
   }
@@ -35,12 +29,7 @@ export class DashboardServiceService {
   removeClass(id: number): Observable<Item> {
     return this.httpClient.delete<Item>(`${this.baseUrl}/${id}`);
   }
-  // addClass(item: Item): Observable<Item> {
-  //   this.Data.push(item);
-  //   console.log("items are",this.Data);
-  //   return this.Data;
-   
-  // }
+  
 addClass(item): Observable<Item>{
   item.id=null;
   return this.httpClient.post<Item>(this.baseUrl, item, this.httpOptions)

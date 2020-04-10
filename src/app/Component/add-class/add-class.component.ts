@@ -42,14 +42,10 @@ export class AddClassComponent implements OnInit {
     })
   }
   onSubmit() {
-    console.log("yes",this.addForm.value);
+    
     this.dashboardService.addClass(this.addForm.value)
       .subscribe(data => {
         this.item = data;
-       
-        console.log("item",this.item);
-        console.log("item",data);
-      
         this.router.navigate(['dashboard']);
        
       });  
