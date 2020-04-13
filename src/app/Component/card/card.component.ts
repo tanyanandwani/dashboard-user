@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { DashboardServiceService } from '../../Shared/Services/dashboard-service.service';
 import {Router} from "@angular/router";
 import { ActivatedRoute } from '@angular/router';
 // import {Item} from '../../Shared/Services/items.service';
-import {Item} from "../../model/Item";
+import { DashboardService } from '@services/dashboard.service';
+import {Item} from "@model/item";
 
 
 
@@ -17,7 +17,7 @@ export class CardComponent implements OnInit {
   items: Item[];
   deletedItemId ;
   
-  constructor(private router: Router,private dashboardService: DashboardServiceService,private route: ActivatedRoute,){}
+  constructor(private router: Router,private dashboardService: DashboardService,private route: ActivatedRoute,){}
 
   ngOnInit(){
     this.getData();

@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import {DashboardComponent} from './Component/dashboard/dashboard.component';
 import {TabComponent} from './Component/tab/tab.component';
 import {CardComponent} from './Component/card/card.component';
-import { DashboardServiceService} from './Shared/Services/dashboard-service.service';
 import {ItemsService} from './Shared/Services/items.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,6 +17,7 @@ import { CommonModule } from '@angular/common';
 import {ReactiveFormsModule} from "@angular/forms";
 import {AppRoutingModule} from "./app-routing/app-routing.module";
 import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
+import { DashboardService } from './Shared/Services/dashboard.service';
 
 
 @NgModule({
@@ -44,7 +44,7 @@ import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
     // CalendarModule,
     // TooltipModule
   ],
-  providers: [DashboardServiceService],
+  providers: [DashboardService],
  
   bootstrap: [AppComponent],
 

@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import { DashboardServiceService } from '../../Shared/Services/dashboard-service.service';
-import {Item} from "../../model/Item";
-
+import { DashboardService } from '@services/dashboard.service';
+import {Item} from "@model/item";
 
 @Component({
   selector: 'app-add-class',
   templateUrl: './add-class.component.html',
   styleUrls: ['./add-class.component.css'],
-  providers: [DashboardServiceService],
+  providers: [DashboardService],
 })
 export class AddClassComponent implements OnInit {
   item: any;
@@ -17,7 +16,7 @@ export class AddClassComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private dashboardService: DashboardServiceService
+    private dashboardService: DashboardService
   ){ }
   addForm: FormGroup;
 

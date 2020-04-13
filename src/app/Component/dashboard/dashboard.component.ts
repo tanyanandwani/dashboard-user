@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DashboardServiceService } from '../../Shared/Services/dashboard-service.service';
+import { DashboardService } from '@services/dashboard.service';
+import {Item} from "@model/item";
 import {Router} from "@angular/router";
-import {Item} from "../../model/Item";
+
 
 
 @Component({
@@ -17,7 +18,7 @@ export class DashboardComponent implements OnInit {
   countOfInprogressClass;
   countOfTotalClass;
   countOfNotStartedClass;
-  constructor(private router: Router,private dashboardService: DashboardServiceService){}
+  constructor(private router: Router,private dashboardService: DashboardService){}
 
   ngOnInit(){
     

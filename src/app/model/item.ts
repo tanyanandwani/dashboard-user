@@ -4,3 +4,14 @@ export class Item {
     public status = '',public duration = '',public subject = '',public completed = ''
 ) {}
 }
+
+// export const enum Item {
+//  id,
+//  username,
+//  email,
+//  rating,
+//  status,
+//  duration,
+//  subject,
+//  completed
+// }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DashboardServiceService } from '../../Shared/Services/dashboard-service.service';
-import {Item} from "../../model/Item";
+import { DashboardService } from '@services/dashboard.service';
+import {Item} from "@model/item";
 
 @Component({
   selector: 'app-header',
@@ -10,7 +10,7 @@ import {Item} from "../../model/Item";
 export class HeaderComponent implements OnInit {
  
   items: Item[];
-  constructor(private dashboardService: DashboardServiceService) { }
+  constructor(private dashboardService: DashboardService) { }
 
   ngOnInit() {
     this.dashboardService.getData().subscribe((data:Item[]) =>{ 

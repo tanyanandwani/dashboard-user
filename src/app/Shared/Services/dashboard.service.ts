@@ -5,15 +5,11 @@ import { tap, catchError } from 'rxjs/operators';
  import {Item} from "../../model/Item";
  import {ItemsService} from "./items.service"
 
-
-
 @Injectable({
   providedIn: 'root'
 })
-export class DashboardServiceService {
-  
-  
- 
+export class DashboardService {
+
   constructor(private httpClient: HttpClient) { }
   
   baseUrl: string = 'api/items';
