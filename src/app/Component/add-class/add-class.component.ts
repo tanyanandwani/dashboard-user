@@ -15,9 +15,9 @@ export class AddClassComponent implements OnInit {
   item: any;
   items: Item[];
   constructor(
-    public fb: FormBuilder,
+    private fb: FormBuilder,
     private router: Router,
-    public dashboardService: DashboardServiceService
+    private dashboardService: DashboardServiceService
   ){ }
   addForm: FormGroup;
 

@@ -17,7 +17,7 @@ export class CardComponent implements OnInit {
   items: Item[];
   deletedItemId ;
   
-  constructor(public router: Router,private dashboardService: DashboardServiceService,private route: ActivatedRoute,){}
+  constructor(private router: Router,private dashboardService: DashboardServiceService,private route: ActivatedRoute,){}
 
   ngOnInit(){
     this.getData();
