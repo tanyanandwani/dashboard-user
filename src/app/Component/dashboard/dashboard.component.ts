@@ -13,49 +13,51 @@ import {Item} from "../../model/Item";
 export class DashboardComponent implements OnInit {
   
   items: Item[];
-  count_of_completed_class; 
-  count_of_inprogress_class;
-  count_of_total_class;
-  count_of_not_started_class;
+  countOfCompletedClass;
+  countOfInprogressClass;
+  countOfTotalClass;
+  countOfNotStartedClass;
   constructor(private router: Router,private dashboardService: DashboardServiceService){}
 
   ngOnInit(){
     
     this.dashboardService.getData().subscribe((data:Item[]) =>{ 
       this.items = data;
-       this.Count_Completed_class();
-      this.Count_In_progress_class();
-      this.Count_Not_Started_class();
-      this.count_Total_class();
+       this.countCompletedClass();
+      this.countInProgressClass();
+      this.countNotStartedClass();
+      this.countTotalClass();
     })
   }
   
 
-  Count_Completed_class(){
+  countCompletedClass(){
     
-      this.count_of_completed_class = 0;  
+      this.countOfCompletedClass = 0;  
       for (var i=0; i<this.items.length; i++) {
-        if ( 'status' in this.items[i] && this.items[i].status === "Completed" ) this.count_of_completed_class++;
+        if ( 'status' in this.items[i] && this.items[i].status === "Completed" ) this.countOfCompletedClass++;
       }
-      return this.count_of_completed_class;    
+      return this.countOfCompletedClass;    
     }
-    Count_In_progress_class(){
-      this.count_of_inprogress_class = 0;
+    countInProgressClass(){
+      this.countOfInprogressClass = 0;
       for (var i=0; i<this.items.length; i++) {
-        if ( 'status' in this.items[i] && this.items[i].status === "Inprogress" ) this.count_of_inprogress_class++;
+        if ( 'status' in this.items[i] && this.items[i].status === "Inprogress" ) this.countOfInprogressClass++;
     }
+    return this.countOfInprogressClass;
   }
-  Count_Not_Started_class(){
-    this.count_of_not_started_class = 0;
+  countNotStartedClass(){
+    this.countOfNotStartedClass = 0;
     for (var i=0; i<this.items.length; i++) {
-      if ( 'status' in this.items[i] && this.items[i].status === "NotStarted" ) this.count_of_not_started_class++;
+      if ( 'status' in this.items[i] && this.items[i].status === "NotStarted" ) this.countOfNotStartedClass++;
   }
+  return this.countOfNotStartedClass;
 }
 
-count_Total_class(){
-  this.count_of_total_class = 0;
-  this.count_of_total_class =  this.count_of_completed_class + this.count_of_inprogress_class + this.count_of_not_started_class;
-  return this.count_of_total_class;
+countTotalClass(){
+  this.countOfTotalClass = 0;
+  this.countOfTotalClass =  this.countOfCompletedClass + this.countOfInprogressClass + this.countOfNotStartedClass;
+  return this.countOfTotalClass;
 }
 
 }
