@@ -28,9 +28,10 @@ export class CardComponent implements OnInit {
     const i = this.items.findIndex(it => it.id === item.id);
     if (i !== -1) {
       this.deletedItemId = this.items.splice(i, 1);
+      this.dashboardService.removeClass(this.deletedItemId).subscribe(data => {
+      });
     }
-    this.dashboardService.removeClass(this.deletedItemId).subscribe(data => {
-     });
+    
     
   }
   getData(){
