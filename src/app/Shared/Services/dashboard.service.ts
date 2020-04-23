@@ -9,6 +9,7 @@ import { tap, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class DashboardService {
+status:any[];
 
   constructor(private httpClient: HttpClient) { }
   
@@ -21,13 +22,16 @@ export class DashboardService {
   getData(){
     return this.httpClient.get(this.baseUrl);
   }
+  
  
   removeClass(id: number): Observable<Item> {
     return this.httpClient.delete<Item>(`${this.baseUrl}/${id}`);
   }
   
 addClass(item): Observable<Item>{
-  item.id=null;
-  return this.httpClient.post<Item>(this.baseUrl, item, this.httpOptions)
+ console.log("sitam",item);
+   return this.httpClient.post<Item>(this.baseUrl, item, this.httpOptions);
+  // return this.httpClient.get<Item>(this.baseUrl);
+  
 }
 }

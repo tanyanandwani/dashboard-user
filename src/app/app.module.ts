@@ -18,6 +18,11 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {AppRoutingModule} from "./app-routing/app-routing.module";
 import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
 import { DashboardService } from './Shared/Services/dashboard.service';
+import { ChildCardComponent } from './Component/child-card/child-card.component';
+
+
+
+
 
 
 @NgModule({
@@ -29,6 +34,11 @@ import { DashboardService } from './Shared/Services/dashboard.service';
     CardComponent,
     AddClassComponent,
     
+    ChildCardComponent,
+    
+   
+   
+    
   ],
   imports: [
     BrowserModule,
@@ -38,7 +48,8 @@ import { DashboardService } from './Shared/Services/dashboard.service';
      AppRoutingModule,InMemoryWebApiModule.forRoot(ItemsService),
      FormsModule,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+   
   
     
     // CalendarModule,

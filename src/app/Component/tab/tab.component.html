@@ -1,28 +1,15 @@
 <div class="container-fluid">
   <ng-container>
     <div class="tab">
-      <div class="row">
-        <div class="col-lg-3 col-md-6 col-sm-12">
-          <button type="button" class="list-group-item list-group-item-action">
-            {{tabContent_for_TotalNo_class}} {{tabQuantity_for_TotalNo_class}}
-          </button>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-12">
-          <button type="button" class="list-group-item list-group-item-action">
-            {{tabContent_for_Completed_class}} {{tabQuantity_for_Completed_class}}
-          </button>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-12">
-          <button type="button" class="list-group-item list-group-item-action">
-            {{tabContent_for_In_Progress_class}} {{tabQuantity_for_In_Progress_class}}
-          </button>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-12">
-          <button type="button" class="list-group-item list-group-item-action">
-            {{tabContent_for_not_Started_class}} {{tabQuantity_for_not_Started_class}} </button>
-        </div>
-      </div>
-    </div>
+   <button type="button" (click)="scroll()" class="btn btn-outline-primary btn-lg">
+      <div id="myDIV">
+          <div id="tabContent">
+              {{tabContent}} {{tabQuantity}}
+          </div>
+        </div> 
+            <!-- {{tabContent}} {{tabQuantity}} -->
+          </button>    
+   </div>  
   </ng-container>
 
 </div>

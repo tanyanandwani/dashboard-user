@@ -1,70 +1,91 @@
-<div class="col-lg-3 col-md-6 col-sm-12">
-    <!-- <button type="button"  class="list-group-item list-group-item-action" (click)="addClass()"> AddClass</button> -->
-    <button type="button" class="btn btn-primary btn-lg" (click)="addClass()"> AddClass</button> 
+
+  <div class="col-lg-3 col-md-6 col-sm-12">
+  
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#withBackdrop" (click)="addClass()"> AddClass</button>
   </div>
-  <br>
-<div class="container-fluid">
-    <div class="row">
-      <ng-container *ngFor="let item of items">
-        <div class="col-lg-3 col-md-4 col-sm-12" *ngIf="item.status === 'Inprogress'">
-          <div class="card">
-            <div class="card-header">{{item.status}}
-                <button type="button" class="close" aria-label="Close" (click)="removeClass(item)">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+  <!-- <button type="button" (click)="addData()">add xyz</button> -->
+  <!-- <app-add-class *ngIf="popUpOpen">
+  </app-add-class> -->
+  <div>
+  <div *ngIf="popUpOpen">
+  <div id="withBackdrop" class="modal fade" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add Class</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                
             </div>
-            <div class="card-body">
-              <h3 class="card-title">
-                <b>{{item.subject}}</b>
-              </h3>
-              <p class="card-text">Duration:{{item.duration}}
-                <br>Completed:{{item.completed}}
-                <br>Status:{{item.status}}</p>
-            </div>       
-          </div>
+            <div class="modal-body">
+                <div class="addClassForm">
+                    <form  [formGroup]="addForm" (ngSubmit)="onSubmit()" novalidate>
+                        
+                      <div class="form-group">
+                        <label for="status">Enter Status:</label>
+                        <select formControlName="status" class="form-control" >
+                            <option *ngFor="let st of status">
+                              <div *ngIf="st.content != 'TotalClass'">
+                               <p>{{st.content}}</p> 
+                              </div> 
+                               </option>
+                        </select>    
+                    </div>
+                  
+                      <div class="form-group">
+                        <label for="duration">Enter duration:</label>
+                        <input type="text" formControlName="duration" placeholder="please enter duration" name="duration" class="form-control" id="duration">
+                      </div>
+                      <div class="form-group">
+                          <label for="subject">Enter subject:</label>
+                          <input type="text" formControlName="subject" placeholder="please enter subject" name="subject" class="form-control" id="subject">
+                      </div>
+                      <div class="form-group">
+                          <label for="completed status">completed Status:</label>
+                          <select formControlName="completed" class="form-control">
+                            <option *ngFor="let cp of completion_percentage">{{cp}}</option>
+                        </select>   
+                     </div>
+                    </form>
+                  </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="onSubmit()">Add</button>
+            </div>
+           
         </div>
-      </ng-container>
-    </div>
-    <div class="row">
-      <ng-container *ngFor="let item of items">
-        <div class="col-lg-3 col-md-4 col-sm-12" *ngIf="item.status === 'NotStarted'">
-          <div class="card">
-            <div class="card-header">{{item.status}}
-                <button type="button" class="close" aria-label="Close" (click)="removeClass(item)">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-            </div>
-            <div class="card-body">
-              <h3 class="card-title">
-                <b>{{item.subject}}</b>
-              </h3>
-              <p class="card-text">Duration:{{item.duration}}
-                <br>Completed:{{item.completed}}
-                <br>Status:{{item.status}}</p>
-            </div>
-          </div>
-        </div>
-      </ng-container>
-    </div>
-    <div class="row">
-      <ng-container *ngFor="let item of items">
-        <div class="col-lg-3 col-md-4 col-sm-12" *ngIf="item.status === 'Completed'">
-          <div class="card">
-            <div class="card-header">{{item.status}}
-                <button type="button" class="close" aria-label="Close" (click)="removeClass(item)">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-            </div>
-            <div class="card-body">
-              <h3 class="card-title">
-                <b>{{item.subject}}</b>
-              </h3>
-              <p class="card-text">Duration:{{item.duration}}
-                <br>Completed:{{item.completed}}
-                <br>Status:{{item.status}}</p>
-            </div>
-          </div>
-        </div>
-      </ng-container>
     </div>
   </div>
+</div>
+  <ng-container *ngFor="let st of status" >
+    <div class="title" *ngIf="st.content != 'TotalClass'" >
+    <p> {{st.content}}</p>
+    </div>
+    <br/>
+    <div class="container-fluid">
+    <div class="row">
+      <ng-container *ngFor="let item of items">
+          <div class="col-lg-3 col-md-4 col-sm-12" *ngIf="item.status == st.content">
+              
+              <div class="card">
+
+          <div class="card-header">
+              <img src="./../../../assets/books.jpg" class="card-img-top" alt="image">
+              <div class="overlay">
+            <button type="button" class="close" aria-label="Close" (click)="removeClass(item)">
+              <span aria-hidden="true">&times;</span>
+            </button>
+              </div>
+          </div>
+          <!-- <img src="./../../../assets/book.png" class="card-img-top" alt="image"> -->
+          <div class="card-body">
+            <app-child-card [subject]=item.subject [duration]=item.duration [status]=item.status [completed]=item.completed></app-child-card>
+          </div>
+        </div>
+        </div>
+       
+      
+      </ng-container>
+    </div>
+  </div>
+  </ng-container>

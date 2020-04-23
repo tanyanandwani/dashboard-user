@@ -5,6 +5,7 @@ import {Item} from "../../model/Item";
 export class ItemsService implements InMemoryDbService{
   
   createDb(){
+    
     const items: Item[]=[
       {
       "id": 1,
@@ -128,7 +129,11 @@ export class ItemsService implements InMemoryDbService{
     }
     ];
     return {items};
+
+    
   }
   
 
 }
+
+

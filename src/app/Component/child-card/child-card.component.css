@@ -15,18 +15,12 @@
     font-size: 17px;
     
 }
-/* .card-img-top{
-    width:95%;
-} */
-
 .card-header{
     border-top: 2px solid #007bff; 
     border-bottom: 2px solid #007bff;
-    /* background-color: #007bff; */
-    /* background-image: url("./../../../assets/books.jpg"); */
+    background-color: #007bff;
     color:white; 
     font-size:20px;
-    padding: 0px;
     
 }
 .container{
@@ -37,10 +31,7 @@
    
 }
 .close{
-    color: rgb(167, 27, 27);
-    font-weight: 800;
-    font-size: 39px;
-    padding-right:10px;
+    color: white;
 }
 /* .button list-group-item{
     background-color: #007bff;
@@ -52,25 +43,3 @@
   margin-top: 30px;
    
 } */
-.title{
-    text-align: center;
-    font-size: 23px;
-    font-weight: bold;
-    padding-top: 21px;
-}
-.card:hover .overlay {
-    opacity: 2.5;
-  }
-  
-.overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-    transition: .3s ease;
-  
-  }

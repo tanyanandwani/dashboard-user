@@ -1,14 +1,11 @@
-
-<app-tab 
-[tabContent_for_TotalNo_class]= " 'Total Class' "
-[tabQuantity_for_TotalNo_class]=countOfTotalClass
-[tabContent_for_Completed_class]=" 'Completed' "
-[tabQuantity_for_Completed_class]=countOfCompletedClass
-[tabContent_for_In_Progress_class]= " 'InProgress' "
-[tabQuantity_for_In_Progress_class]=countOfInprogressClass
-[tabContent_for_not_Started_class]= " 'NotStarted' "
-[tabQuantity_for_not_Started_class]=countOfNotStartedClass
-></app-tab>
+<!-- <div class="row">
+    <ng-container *ngFor="let st of status" >
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <app-tab [tabContent]=st.content [tabQuantity]=st.quantity></app-tab>
+        </div>
+    </ng-container>
+</div> -->
+<!-- <button type="button" (click)="addData()">add xyz</button> -->
 <app-card></app-card>
 
 

@@ -1,45 +1,89 @@
-
+<!-- <div class="modal-dialog" role="document" id="staticBackdrop">
 <div class="col-lg-8 col-md-6 col-sm-12 user-container">
-  <h2 class="text-center">Add User</h2>
+  <h2 class="text-center" id="staticBackdropLabel">Add User</h2>
   <div class="addClassForm">
   <form  [formGroup]="addForm" (ngSubmit)="onSubmit()" novalidate>
-        <div class="form-group">
-        <label for="password">Enter id:</label>
-         <input type="number" formControlName="id" placeholder="please enter id" name="id" class="form-control" id="id">
-        </div>
+      
     <div class="form-group">
-      <label for="username">Enter username:</label>
-      <input type="text" formControlName="username" placeholder="please enter username" name="username" class="form-control" id="username">
-    </div>
+      <label for="status">Enter Status:</label>
+      <select formControlName="status" class="form-control">
+          <option *ngFor="let st of status">{{st.content}}</option>
+      </select>    
+  </div>
 
     <div class="form-group">
-      <label for="firstName">Enter email:</label>
-      <input type="email" formControlName="email" placeholder="please enter email" name="email" class="form-control" id="email">
-    </div>
-
-    <div class="form-group">
-      <label for="lastName">Enter rating:</label>
-      <input type="number" formControlName="rating" placeholder="please enter rating" name="rating" class="form-control" id="rating">
-    </div>
-
-    <div class="form-group">
-      <label for="age">Enter status:</label>
-      <input type="text" formControlName="status" placeholder="please enter status" name="status" class="form-control" id="status">
-    </div>
-
-    <div class="form-group">
-      <label for="salary">Enter duration:</label>
+      <label for="duration">Enter duration:</label>
       <input type="text" formControlName="duration" placeholder="please enter duration" name="duration" class="form-control" id="duration">
     </div>
     <div class="form-group">
-        <label for="salary">Enter subject:</label>
+        <label for="subject">Enter subject:</label>
         <input type="text" formControlName="subject" placeholder="please enter subject" name="subject" class="form-control" id="subject">
     </div>
     <div class="form-group">
-        <label for="salary">completed Status:</label>
-        <input type="text" formControlName="completed" placeholder="please enter completed status" name="completed" class="form-control" id="completed">
-    </div>
+        <label for="completed status">completed Status:</label>
+        <select formControlName="completed status" class="form-control">
+          <option *ngFor="let cp of completion_percentage">{{cp}}</option>
+      </select>    </div>
     <button class="btn btn-success">Add</button>
   </form>
 </div>
 </div>
+</div> -->
+
+
+
+<!-- Modal -->
+
+
+<div id="withBackdrop" class="modal fade" data-backdrop="false">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title">Add Class</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              
+          </div>
+          <div class="modal-body">
+              <div class="addClassForm">
+                  <form  [formGroup]="addForm" (ngSubmit)="onSubmit()" novalidate>
+                      
+                    <div class="form-group">
+                      <label for="status">Enter Status:</label>
+                      <select formControlName="status" class="form-control" >
+                          <option *ngFor="let st of status">
+                            <div *ngIf="st.content != 'TotalClass'">
+                             <p>{{st.content}}</p> 
+                            </div> 
+                             </option>
+                      </select>    
+                  </div>
+                
+                    <div class="form-group">
+                      <label for="duration">Enter duration:</label>
+                      <input type="text" formControlName="duration" placeholder="please enter duration" name="duration" class="form-control" id="duration">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Enter subject:</label>
+                        <input type="text" formControlName="subject" placeholder="please enter subject" name="subject" class="form-control" id="subject">
+                    </div>
+                    <div class="form-group">
+                        <label for="completed status">completed Status:</label>
+                        <select formControlName="completed" class="form-control">
+                          <option *ngFor="let cp of completion_percentage">{{cp}}</option>
+                      </select>   
+                   </div>
+                    <!-- <button class="btn btn-success">Add</button> -->
+                  </form>
+                </div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" (click)="onSubmit()">Add</button>
+          </div>
+         
+      </div>
+  </div>
+</div>
+<!-- <div id="modal-backdrop" class="modal-backdrop-transparent modal-transition"></div> -->
+
+
