@@ -3,9 +3,6 @@
   
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#withBackdrop" (click)="addClass()"> AddClass</button>
   </div>
-  <!-- <button type="button" (click)="addData()">add xyz</button> -->
-  <!-- <app-add-class *ngIf="popUpOpen">
-  </app-add-class> -->
   <div>
   <div *ngIf="popUpOpen">
   <div id="withBackdrop" class="modal fade" data-backdrop="false">
@@ -18,8 +15,8 @@
             </div>
             <div class="modal-body">
                 <div class="addClassForm">
-                    <form  [formGroup]="addForm" (ngSubmit)="onSubmit()" novalidate>
-                        
+                    <form  [formGroup]="addForm" (ngSubmit)="onSubmit()">
+                     
                       <div class="form-group">
                         <label for="status">Enter Status:</label>
                         <select formControlName="status" class="form-control" >
@@ -33,8 +30,13 @@
                   
                       <div class="form-group">
                         <label for="duration">Enter duration:</label>
-                        <input type="text" formControlName="duration" placeholder="please enter duration" name="duration" class="form-control" id="duration">
+                        <input type="text" formControlName="duration" placeholder="please enter duration" name="duration"  [ngClass]="{ 'is-invalid': submitted && f.duration.errors }" class="form-control" id="duration"
+                         >
+                         <div *ngIf="submitted && f.duration.errors" class="invalid-feedback">
+                          <div *ngIf="f.duration.errors.required">duration is required</div>
                       </div>
+                      </div>
+         
                       <div class="form-group">
                           <label for="subject">Enter subject:</label>
                           <input type="text" formControlName="subject" placeholder="please enter subject" name="subject" class="form-control" id="subject">
@@ -49,9 +51,13 @@
                   </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="onReset()">Close</button>
                 <button type="button" class="btn btn-primary" (click)="onSubmit()">Add</button>
             </div>
+
+            <!-- <div class="submitted-message" *ngIf="addForm.submitted">
+              <p>You've submitted your hero, {{ addForm.value.name }}!</p>
+            </div> -->
            
         </div>
     </div>
@@ -77,7 +83,6 @@
             </button>
               </div>
           </div>
-          <!-- <img src="./../../../assets/book.png" class="card-img-top" alt="image"> -->
           <div class="card-body">
             <app-child-card [subject]=item.subject [duration]=item.duration [status]=item.status [completed]=item.completed></app-child-card>
           </div>

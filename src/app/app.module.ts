@@ -11,7 +11,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CardModule} from 'primeng/card';
 // import {CalendarModule} from 'primeng/calendar';
 // import { TooltipModule } from 'ng2-tooltip-directive';
-import { AddClassComponent } from './Component/add-class/add-class.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {ReactiveFormsModule} from "@angular/forms";
@@ -32,7 +31,7 @@ import { ChildCardComponent } from './Component/child-card/child-card.component'
     DashboardComponent,
     TabComponent,
     CardComponent,
-    AddClassComponent,
+    
     
     ChildCardComponent,
     
