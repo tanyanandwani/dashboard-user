@@ -23,15 +23,12 @@ status:any[];
     return this.httpClient.get(this.baseUrl);
   }
   
- 
   removeClass(id: number): Observable<Item> {
     return this.httpClient.delete<Item>(`${this.baseUrl}/${id}`);
   }
   
 addClass(item): Observable<Item>{
  console.log("sitam",item);
-   return this.httpClient.post<Item>(this.baseUrl, item, this.httpOptions);
-  // return this.httpClient.get<Item>(this.baseUrl);
-  
+   return this.httpClient.post<Item>(this.baseUrl, item, this.httpOptions);  
 }
 }

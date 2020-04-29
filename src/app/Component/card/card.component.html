@@ -1,96 +1,88 @@
-
-  <div class="col-lg-3 col-md-6 col-sm-12">
-  
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#withBackdrop" (click)="addClass()"> AddClass</button>
-  </div>
-  <div>
-  <div *ngIf="popUpOpen">
-  <div id="withBackdrop" class="modal fade" data-backdrop="false">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Add Class</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                
-            </div>
-            <div class="modal-body">
-                <div class="addClassForm">
-                    <form  [formGroup]="addForm" (ngSubmit)="onSubmit()">
-                     
-                      <div class="form-group">
-                        <label for="status">Enter Status:</label>
-                        <select formControlName="status" class="form-control" >
-                            <option *ngFor="let st of status">
-                              <div *ngIf="st.content != 'TotalClass'">
-                               <p>{{st.content}}</p> 
-                              </div> 
-                               </option>
-                        </select>    
-                    </div>
-                  
-                      <div class="form-group">
-                        <label for="duration">Enter duration:</label>
-                        <input type="text" formControlName="duration" placeholder="please enter duration" name="duration"  [ngClass]="{ 'is-invalid': submitted && f.duration.errors }" class="form-control" id="duration"
-                         >
-                         <div *ngIf="submitted && f.duration.errors" class="invalid-feedback">
-                          <div *ngIf="f.duration.errors.required">duration is required</div>
-                      </div>
-                      </div>
-         
-                      <div class="form-group">
-                          <label for="subject">Enter subject:</label>
-                          <input type="text" formControlName="subject" placeholder="please enter subject" name="subject" class="form-control" id="subject">
-                      </div>
-                      <div class="form-group">
-                          <label for="completed status">completed Status:</label>
-                          <select formControlName="completed" class="form-control">
-                            <option *ngFor="let cp of completion_percentage">{{cp}}</option>
-                        </select>   
-                     </div>
-                    </form>
-                  </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="onReset()">Close</button>
-                <button type="button" class="btn btn-primary" (click)="onSubmit()">Add</button>
-            </div>
-
-            <!-- <div class="submitted-message" *ngIf="addForm.submitted">
-              <p>You've submitted your hero, {{ addForm.value.name }}!</p>
-            </div> -->
-           
-        </div>
-    </div>
-  </div>
+<div class="col-lg-3 col-md-6 col-sm-12">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#withBackdrop" (click)="addClass()">
+    AddClass</button>
 </div>
-  <ng-container *ngFor="let st of status" >
-    <div class="title" *ngIf="st.content != 'TotalClass'" >
-    <p> {{st.content}}</p>
-    </div>
-    <br/>
-    <div class="container-fluid">
-    <div class="row">
-      <ng-container *ngFor="let item of items">
-          <div class="col-lg-3 col-md-4 col-sm-12" *ngIf="item.status == st.content">
-              
-              <div class="card">
+<div>
+  <div *ngIf="popUpOpen">
+    <div id="withBackdrop" class="modal fade" data-backdrop="false">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Add Class</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class="addClassForm">
+              <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
 
-          <div class="card-header">
-              <img src="./../../../assets/books.jpg" class="card-img-top" alt="image">
-              <div class="overlay">
-            <button type="button" class="close" aria-label="Close" (click)="removeClass(item)">
-              <span aria-hidden="true">&times;</span>
-            </button>
-              </div>
+                <div class="form-group">
+                  <label for="status">Enter Status:</label>
+                  <select formControlName="status" class="form-control">
+                    <option *ngFor="let st of status">
+                      <div *ngIf="st.content != 'TotalClass'">
+                        <p>{{st.content}}</p>
+                      </div>
+                    </option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="duration">Enter duration:</label>
+                  <input type="text" formControlName="duration" placeholder="please enter duration" name="duration"
+                    [ngClass]="{ 'is-invalid': submitted && f.duration.errors }" class="form-control" id="duration">
+                  <div *ngIf="submitted && f.duration.errors" class="invalid-feedback">
+                    <div *ngIf="f.duration.errors.required">duration is required</div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="subject">Enter subject:</label>
+                  <input type="text" formControlName="subject" placeholder="please enter subject" name="subject"
+                    class="form-control" id="subject">
+                </div>
+                <div class="form-group">
+                  <label for="completed status">completed Status:</label>
+                  <select formControlName="completed" class="form-control">
+                    <option *ngFor="let cp of completion_percentage">{{cp}}</option>
+                  </select>
+                </div>
+              </form>
+            </div>
           </div>
-          <div class="card-body">
-            <app-child-card [subject]=item.subject [duration]=item.duration [status]=item.status [completed]=item.completed></app-child-card>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" (click)="onReset()">Close</button>
+            <button type="button" class="btn btn-primary" (click)="onSubmit()">Add</button>
           </div>
         </div>
-        </div>
-       
-      
-      </ng-container>
+      </div>
     </div>
   </div>
+  <ng-container *ngFor="let st of status">
+    <div class="title" *ngIf="st.content != 'TotalClass'">
+      <p> {{st.content}}</p>
+    </div>
+    <br />
+    <div class="container-fluid">
+      <div class="row">
+        <ng-container *ngFor="let item of items">
+          <div class="col-lg-3 col-md-4 col-sm-12" *ngIf="item.status == st.content">
+
+            <div class="card">
+              <div class="card-header">
+                <img src="./../../../assets/books.jpg" class="card-img-top" alt="image">
+                <div class="overlay">
+                  <button type="button" class="close" aria-label="Close" (click)="removeClass(item)">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              </div>
+              <div class="card-body">
+                <app-child-card [subject]=item.subject [duration]=item.duration [status]=item.status
+                  [completed]=item.completed></app-child-card>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
   </ng-container>

@@ -16,7 +16,5 @@ export class HeaderComponent implements OnInit {
     this.dashboardService.getData().subscribe((data:Item[]) =>{ 
       this.items = data;
     })
-  }
-  
-  
+  }  
 }

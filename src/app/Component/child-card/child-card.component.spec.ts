@@ -22,4 +22,6 @@ describe('ChildCardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  
 });

@@ -15,15 +15,10 @@
     font-size: 17px;
     
 }
-/* .card-img-top{
-    width:95%;
-} */
 
 .card-header{
     border-top: 2px solid #007bff; 
     border-bottom: 2px solid #007bff;
-    /* background-color: #007bff; */
-    /* background-image: url("./../../../assets/books.jpg"); */
     color:white; 
     font-size:20px;
     padding: 0px;

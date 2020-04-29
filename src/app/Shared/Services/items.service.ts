@@ -1,11 +1,9 @@
 import {InMemoryDbService} from 'angular-in-memory-web-api';
 import {Item} from "../../model/Item";
 
-
 export class ItemsService implements InMemoryDbService{
   
-  createDb(){
-    
+  createDb(){ 
     const items: Item[]=[
       {
       "id": 1,
